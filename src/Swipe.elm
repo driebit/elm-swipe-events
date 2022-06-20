@@ -1,5 +1,5 @@
 module Swipe exposing
-    ( onMove, onEnd, onStart
+    ( onMove, onEnd, onStart, onEndWithOptions
     , Gesture, Event, blanco, record
     , Position, locate, deltaX, deltaY, isTap, isUpSwipe, isDownSwipe, isLeftSwipe, isRightSwipe
     )
