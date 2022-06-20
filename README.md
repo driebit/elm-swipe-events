@@ -1,6 +1,8 @@
-# elm-touch-events
+# elm-swipe-events
 
-> Touch events, in Elm
+> Swipe events, in Elm
+
+Adapted for Elm 0.19 from [elm-touch-events](https://github.com/zwilias/elm-touch-events).
 
 ## License
 

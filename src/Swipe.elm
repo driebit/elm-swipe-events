@@ -1,4 +1,4 @@
-module Touch exposing
+module Swipe exposing
     ( onMove, onEnd, onStart
     , Gesture, Event, blanco, record
     , Position, locate, deltaX, deltaY, isTap, isUpSwipe, isDownSwipe, isLeftSwipe, isRightSwipe
@@ -13,41 +13,41 @@ This is intended to be used in qualified form.
 
 In your model:
 
-    { gesture = Touch.Gesture }
+    { gesture = Swipe.Gesture }
 
 In your init:
 
-    { gesture = Touch.blanco }
+    { gesture = Swipe.blanco }
 
 In your Msg:
 
     type Msg
-        = Swipe Touch.Event
-        | SwipeEnd Touch.Event
+        = Swipe Swipe.Event
+        | SwipeEnd Swipe.Event
 
 In your view:
 
     Html.div
-        [ Touch.onStart Swipe
-        , Touch.onMove Swipe
-        , Touch.onEnd SwipeEnd
+        [ Swipe.onStart Swipe
+        , Swipe.onMove Swipe
+        , Swipe.onEnd SwipeEnd
         ]
         [ Html.text "Swipe me!" ]
 
 In your update:
 
     Swipe touch ->
-        { model | gesture = Touch.record touch model.gesture }
+        { model | gesture = Swipe.record touch model.gesture }
 
     SwipeEnd touch ->
         let
-            gesture : Touch.Gesture
+            gesture : Swipe.Gesture
             gesture =
-                Touch.record touch model.gesture
+                Swipe.record touch model.gesture
 
             -- use inspection functions like `isTap` and `isLeftSwipe`
         in
-        { model | gesture = Touch.blanco }
+        { model | gesture = Swipe.blanco }
 
 
 # Events stuff
@@ -167,7 +167,7 @@ type Gesture
     | EndTap Position
 
 
-{-| A single `Touch.Event`. Gestures are made up of these, internally.
+{-| A single `Swipe.Event`. Gestures are made up of these, internally.
 -}
 type Event
     = Touch EventType Position
