@@ -278,4 +278,4 @@ onEnd =
 onEndWithOptions : { stopPropagation : Bool, preventDefault : Bool } -> (Event -> msg) -> Html.Attribute msg
 onEndWithOptions options tagger =
     custom "touchend" <|
-        decodeTouchWithOptions "changedTouches" options (Touch Move >> tagger)
+        decodeTouchWithOptions "changedTouches" options (Touch End >> tagger)
